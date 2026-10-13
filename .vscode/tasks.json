@@ -1,0 +1,76 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Compile Health Services bridge",
+			"type": "shell",
+			"command": "C:\\Users\\P3INW57\\Desktop\\throughline_watch_app\\android\\gradlew.bat",
+			"args": [
+				"-p",
+				"C:\\Users\\P3INW57\\Desktop\\throughline_watch_app\\android",
+				":app:compileDebugKotlin",
+				"--no-daemon"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check Gradle compile lock",
+			"type": "shell",
+			"command": "C:\\Windows\\System32\\tasklist.exe",
+			"args": [
+				"/FI",
+				"PID eq 26840"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Identify Gradle lock process",
+			"type": "shell",
+			"command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"(Get-CimInstance Win32_Process -Filter 'ProcessId=26840').CommandLine"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check Wear emulator connection",
+			"type": "shell",
+			"command": "E:\\Android\\Sdk\\platform-tools\\adb.exe",
+			"args": [
+				"devices",
+				"-l"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Throughline on Wear emulator",
+			"type": "shell",
+			"command": "C:\\src\\flutter\\bin\\flutter.bat",
+			"args": [
+				"run",
+				"-d",
+				"emulator-5554"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect Gradle lock owner 11868",
+			"type": "shell",
+			"command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"(Get-CimInstance Win32_Process -Filter 'ProcessId=11868').CommandLine"
+			],
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
